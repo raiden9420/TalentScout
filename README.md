@@ -1,6 +1,6 @@
 # TalentScout
 
-An AI-powered technical hiring assistant that conducts adaptive interviews, analyzes resumes, and provides data-driven candidate evaluations. Built with a FastAPI backend, Next.js frontend, Supabase database, and Google Gemini AI.
+TalentScout is an end-to-end AI-powered technical hiring platform designed to automate and improve the early stages of the recruitment pipeline. It serves two distinct users: **candidates** who go through a structured, conversational interview experience, and **recruitment managers** who review results, track candidate progress, and make data-driven hiring decisions through a dedicated admin dashboard. The platform replaces manual screening calls with an intelligent AI agent that conducts multi-phase technical interviews, adapts its questions in real time based on the candidate's responses, scores each answer individually, and produces a comprehensive evaluation report at the end of every session. In addition to interviews, TalentScout includes a resume analysis module that accepts PDF uploads, extracts skills from the document, and matches them against a configurable keyword database to produce a compatibility score. The entire system is built on a modern stack: a FastAPI backend handles business logic and AI orchestration, a Next.js frontend delivers a responsive and polished user interface, Supabase provides persistent PostgreSQL storage, and Google Gemini AI powers the conversational intelligence behind the interview agent.
 
 ---
 
@@ -23,14 +23,21 @@ An AI-powered technical hiring assistant that conducts adaptive interviews, anal
 
 ## Overview
 
-TalentScout replaces the manual screening stage of the hiring pipeline with an AI-driven conversational interview. The system:
+### The Problem
 
-- Conducts structured multi-phase technical interviews tailored to each candidate's declared tech stack.
-- Dynamically adjusts question difficulty based on response quality.
-- Scores each answer in real-time and generates per-phase assessments.
-- Produces a comprehensive post-interview report with hiring recommendations.
-- Provides a resume analysis tool for keyword matching and skill extraction.
-- Exposes an admin dashboard for reviewing candidate performance at a glance.
+Technical hiring at scale is time-consuming and inconsistent. Recruiters spend hours conducting initial screening calls, and the quality of those screenings varies depending on the interviewer, their familiarity with the candidate's tech stack, and the questions they happen to ask. Candidates, in turn, often receive a disjointed experience that does not reflect the role they are applying for.
+
+### The Solution
+
+TalentScout addresses this by automating the screening interview entirely. The AI agent takes over the initial technical assessment, ensuring every candidate receives a consistent, fair, and role-relevant interview experience. The system is designed around two workflows:
+
+**For candidates**, the experience begins on the interview page. They enter their personal details, select the technologies they work with using a tag-based input, and start the interview. The AI agent greets them by name, asks questions tailored to their declared tech stack, and guides them through five structured phases: Technical, Projects, Problem Solving, Behavioral, and Completion. The agent follows up on interesting or vague answers, increases difficulty when the candidate performs well, and eases off when they struggle. At the end, the candidate receives a warm closing message summarizing their strengths.
+
+**For recruitment managers**, the admin dashboard provides a centralized view of all candidate activity. Managers log in with a password-protected admin account and can browse candidates by status (New, In Progress, Completed), view per-phase scores and written assessments, inspect tech stack tags, and review aggregate statistics such as total candidates screened, average score, and completion rate. Each candidate row is expandable, revealing the full breakdown of their interview performance without navigating away from the dashboard. This allows hiring teams to quickly identify strong candidates and make informed decisions about who to advance to the next round.
+
+The platform also includes a standalone resume analyzer. Recruiters or candidates can upload a PDF resume, which the system parses to extract skills and match them against a configurable keyword database. The result is a compatibility score alongside a list of matched and missing skills, useful for pre-screening before or after the interview.
+
+Together, these components form a complete initial screening toolkit that is consistent, scalable, and transparent for both sides of the hiring process.
 
 ---
 
